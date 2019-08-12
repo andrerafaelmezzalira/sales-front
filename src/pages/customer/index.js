@@ -31,11 +31,10 @@ class Customer extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-      const { id, address, name, cpfCnpj } = this.state;
-      api.post("/cliente", { id, address, name, cpfCnpj }).
-      then(response => { 
-        this.setState(response.data);
-      }).catch(err=> { this.setState({error: 'CPF/CNPJ já existe'}); });
+    const { id, address, name, cpfCnpj } = this.state;
+    api.post("/cliente", { id, address, name, cpfCnpj }).then(response => { 
+      this.setState(response.data);
+    }).catch(err=> { this.setState({error: 'CPF/CNPJ já existe'}); });
   };
 
   render() {
